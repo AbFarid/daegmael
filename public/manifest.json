@@ -1,6 +1,6 @@
 {
-  "name": "daegmael",
-  "short_name": "daegmael",
+  "name": "Daeg-Mael",
+  "short_name": "Daegmael",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "display": "fullscreen",
+  "background_color": "#2d3351",
+  "theme_color": "#ffd700"
 }

@@ -20,14 +20,14 @@ module.exports = {
     'plugin:vue/essential',
     '@vue/prettier',
     '@vue/typescript',
-    '@vue/standard'
+    '@vue/standard',
   ],
 
-  'extends': [
+  extends: [
     'plugin:vue/essential',
     '@vue/prettier',
     '@vue/typescript',
     '@vue/standard',
-    'eslint:recommended'
-  ]
+    'eslint:recommended',
+  ],
 };
