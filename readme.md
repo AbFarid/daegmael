@@ -1,8 +1,8 @@
 # ![logo](https://github.com/AbFarid/daegmael/blob/master/public/img/icons/icon.png?raw=true) Daegmael
-
-## Introduction
-
 > **Dæg-Mæl** - Anglo-Saxon for "day measure".
+
+  
+## Introduction
 
 Unofficial companion app for game __Kingdom: Two Crowns__.
 
@@ -30,9 +30,9 @@ You can now see your season related information:
 If you'd like to use automatic day progression and/or see daytime countdown to know precise time, use the countdown timer.
 
 Timer buttons:
-    * __START__ - Starts or resumes the countdown
-    * __PAUSE__ - Pauses the countdown
-    * __STOP__ - Stops and resets the countdown
-    * __RESET__ - Resets and starts countdown immediately (useful for readjusting timer)
+* __START__ - Starts or resumes the countdown
+* __PAUSE__ - Pauses the countdown
+* __STOP__ - Stops and resets the countdown
+* __RESET__ - Resets and starts countdown immediately (useful for readjusting timer)
     
 Optionally, if you're on a mobile device (Android/iOS) you'll see a button with an LED (![LED](https://github.com/AbFarid/daegmael/blob/master/src/assets/img/led_mini_dark.png?raw=true)) icon, that will enable the _always-on display_ (AOD). This will remove the unnecessary UI element and keep your screen awake untill you press the button again. There's a basic OLED screen burn-in protection enabled, where the content will move around once a minute.
