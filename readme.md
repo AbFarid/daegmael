@@ -13,6 +13,7 @@ Unofficial companion app for game __Kingdom: Two Crowns__.
 * __show amount of days left till winter comes__ (and crushes you)
 * __shows time till sunset/sunrise__ (slightly more precisely than Sun and Moon)
 * __always-on display that keeps your info at a glance__ (even has burn-in protection for OLED screens)
+* __offline installation for compatible devices__ (as a PWA app, it can be installed into your app drawer)
 
 # Usage
 
@@ -36,3 +37,6 @@ Timer buttons:
 * __RESET__ - Resets and starts countdown immediately (useful for readjusting timer)
     
 Optionally, if you're on a mobile device (Android/iOS) you'll see a button with an LED (![LED](https://github.com/AbFarid/daegmael/blob/master/src/assets/img/led_mini_dark.png?raw=true)) icon, that will enable the _always-on display_ (AOD). This will remove the unnecessary UI element and keep your screen awake untill you press the button again. There's a basic OLED screen burn-in protection enabled, where the content will move around once a minute.
+
+## Installation as native(ish) app for offline use
+The web app can be installed onto your compatible device (Windows/Android/iOS) as a Progressive Web App (PWA). Doing so enables offline usage of the app.
