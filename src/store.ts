@@ -1,14 +1,30 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Timer from 'easytimer.js';
-
 import * as romanize from 'romanize';
 import * as deromanize from 'deromanize';
+
+import { toggleAOD, burnInProtector } from './utils/screen-tools';
 
 const dayLength = 4 * 60; // seconds
 const daytimeLength = 165; // seconds
 const seasonLength = 16; // days
 const seasons = ['spring', 'summer', 'autumn', 'winter'];
+
+const getUA = () => {
+  const ua = navigator.userAgent;
+  let agent = '';
+  const targets = [
+    { input: 'Android', output: 'android' },
+    { input: 'iPhone|iPad', output: 'ios' },
+    { input: 'Chrome|CriOS', output: 'chrome' },
+    { input: 'wv', output: 'webview' },
+  ];
+  for (const { input, output } of targets)
+    if (new RegExp(input).test(ua)) agent += agent ? ` ${output}` : output;
+
+  return agent;
+}
 
 Vue.use(Vuex);
 
@@ -22,10 +38,14 @@ export default new Vuex.Store({
     elapsedTime: '0:00',
     elapsedSeconds: 0,
     elapsedDays: 0,
+
+    AODmode: false,
+    offset: { x: 0, y: 0 },
+    userAgent: getUA(),
   },
 
   mutations: {
-    setCurrentDay(state, value) {
+    setCurrentDay(state, value: string) {
       state.currentDay = value;
     },
     setElapsedTime(state, value) {
@@ -40,6 +60,12 @@ export default new Vuex.Store({
     setTimerState(state, boolean) {
       state.timerRunning = boolean;
     },
+    setAODmode(state, boolean) {
+      state.AODmode = boolean;
+    },
+    setOffset(state, values) {
+      state.offset = values;
+    }
   },
 
   getters: {
@@ -112,7 +138,8 @@ export default new Vuex.Store({
         const time = timer.getTimeValues();
         commit('setElapsedTime', time.toString().replace('00:0', ''));
         commit('setElapsedSeconds', time.minutes * 60 + time.seconds);
-        if (elapsedSeconds >= dayLength) {
+        // + 1 cause 0s second
+        if (elapsedSeconds + 1 >= dayLength) {
           commit('incrementElapsedDay');
           dispatch('changeDay', 1);
           dispatch('resetTimer');
@@ -140,7 +167,16 @@ export default new Vuex.Store({
     resetTimer({ state, commit }): void {
       commit('setElapsedTime', '0:00');
       commit('setElapsedSeconds', 0);
+      commit('setTimerState', true);
       state.timer.reset();
+    },
+
+    toggleAOD({ state, commit }) {
+      toggleAOD(state.AODmode, val => commit('setAODmode', val));
+      
+      burnInProtector((y, x) => {
+        commit('setOffset', { y, x });
+      });
     },
   },
 });

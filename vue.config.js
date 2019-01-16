@@ -1,4 +1,4 @@
-var manifestJSON = require("./public/manifest.json");
+var manifestJSON = require('./public/manifest.json');
 
 pwaArgs = {
   themeColor: manifestJSON.theme_color,
@@ -10,8 +10,12 @@ module.exports = {
   lintOnSave: false,
   baseUrl: process.env.NODE_ENV === 'production' ? '/daegmael/' : '/',
   chainWebpack: config => {
-    config.plugin("pwa").tap(args => {
-      return [pwaArgs];
-    });
-  }
+    config.plugin('pwa').tap(args => [pwaArgs]);
+
+    config.module
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => ({ ...options, limit: 6114, }));
+  },
 };
