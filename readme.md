@@ -5,7 +5,7 @@
 ## Introduction
 
 Unofficial companion app for game __Kingdom: Two Crowns__.
-http://abfarid.github.io/daegmael/
+https://abfarid.github.io/daegmael/
 
 
 #### Features:
