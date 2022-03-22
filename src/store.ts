@@ -46,7 +46,20 @@ export default new Vuex.Store({
 
   mutations: {
     setCurrentDay(state, value: string) {
-      state.currentDay = value;
+
+      // remove uppercase and invalid roman numerals
+      const processed = value
+        .toLowerCase()
+        .split('')
+        .filter(s => /i|v|x|l|c|d|m/.test(s))
+        .join('');
+
+      state.currentDay = processed;
+      // IDK why setting the last numeral to a valid one
+      // is necessary for the change detection to work,
+      // but if You know why, please, do tell.
+      state.currentDay += 'i';
+      state.currentDay = processed;
     },
     setElapsedTime(state, value) {
       state.elapsedTime = value;

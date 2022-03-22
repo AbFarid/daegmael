@@ -65,6 +65,7 @@ body {
   background-color: black;
   background-image: url('./assets/img/brick_wall_pattern.png');
   margin: 0;
+  overscroll-behavior: contain;
 }
 
 #app {
