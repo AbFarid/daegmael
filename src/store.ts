@@ -38,6 +38,8 @@ export default new Vuex.Store({
     elapsedTime: '0:00',
     elapsedSeconds: 0,
     elapsedDays: 0,
+    gems: 0,
+    checkedNames: [],
 
     AODmode: false,
     offset: { x: 0, y: 0 },
@@ -78,7 +80,13 @@ export default new Vuex.Store({
     },
     setOffset(state, values) {
       state.offset = values;
-    }
+    },
+    incrementGems(state){
+      state.gems++;
+    },
+    decrementGems(state){
+      state.gems--;
+    },
   },
 
   getters: {
@@ -109,7 +117,6 @@ export default new Vuex.Store({
       const daysTillWinter = (2 - seasonIndex) * seasonLength + daysTillNextSeason;
       return daysTillWinter < 0 ? 0 : daysTillWinter;
     },
-
     // Timer getters
     elapsedDayPercentage({ elapsedSeconds }): number {
       return (elapsedSeconds * 100) / dayLength;
@@ -143,6 +150,17 @@ export default new Vuex.Store({
       const day = getters.deromanized;
       commit('setCurrentDay', romanize(day + delta).toLowerCase());
     },
+
+    incrementGems({state, commit}) {
+      commit('incrementGems')
+    },
+    decrementGems({state, commit}) {
+      if(state.gems >0){
+        commit('decrementGems')
+      }
+      
+    },
+
 
     initTimer({ state, commit, dispatch }): void {
       const { timer } = state;
