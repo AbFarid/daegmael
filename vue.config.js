@@ -8,7 +8,7 @@ pwaArgs = {
 
 module.exports = {
   lintOnSave: false,
-  baseUrl: process.env.NODE_ENV === 'production' ? '/daegmael/' : '/',
+  baseUrl: process.env.NODE_ENV === 'production' ? '/daegmael-extended/' : '/',
   chainWebpack: config => {
     config.plugin('pwa').tap(args => [pwaArgs]);
 
