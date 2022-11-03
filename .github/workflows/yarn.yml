@@ -40,4 +40,7 @@ jobs:
         # Path of the directory containing the static assets.
         path: dist/ # default is _site/
         # Duration after which artifact will expire in days.
-        # retention-days: 0 # optional, default is 1
+#         retention-days: 0 # optional, default is 1
+    - name: Deploy to GitHub Pages site
+#       id: deployment
+      uses: actions/deploy-pages@v1.2.2
