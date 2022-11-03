@@ -1,0 +1,43 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build and Deploy w/ Yarn
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.9.0]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      uses: borales/actions-yarn@v3.0.0
+      with:
+        cmd: install --immutable
+    - name: Build dist
+      uses: borales/actions-yarn@v3.0.0
+      with:
+        cmd: build
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v1.0.4
+      with:
+        # Path of the directory containing the static assets.
+        path: dist/ # default is _site/
+        # Duration after which artifact will expire in days.
+        # retention-days: 0 # optional, default is 1
