@@ -15,12 +15,17 @@ on:
 permissions:
   contents: read
   pages: write
+  deployments: write
   id-token: write
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     strategy:
       matrix:
