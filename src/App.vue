@@ -75,7 +75,6 @@ body {
   image-rendering: pixelated;
   color: gold;
 
-  height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;

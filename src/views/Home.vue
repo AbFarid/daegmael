@@ -2,13 +2,7 @@
   <!-- <div class="wrapper"> -->
     <div class="container">
 
-      <div class="header">
-        <div class="crown"></div>
-        <img src="../assets/img/banner.png" alt="header">
-        <p class="gothic shadow">Daeg-Mael</p>
-        <p class="gothic">Daeg-Mael</p>
-      </div>
-
+      
       <div class="panel">
         <div class="section">
           <div class="row">
@@ -104,12 +98,156 @@
               <img src="../assets/img/led_mini_dark.png" alt="led_icon">
             </button>
           </div>
+
+
+          <div class="title extraPad">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">Gems and Unlocks</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+          </div>
+
+          <div class="row uppercase" >
+            <span>Gem Number:</span>
+            <span class="spacer"></span>
+            <span>{{ gems }}</span>
+          </div>
+          <div class="row">
+
+            <button class="btn" :disabled="gems <=0" @click="decrementGems()">-1</button>
+            <button class="btn" @click="incrementGems()">+1</button> 
+          
+          
+          </div>
+
+          <div class="uppercase">
+            <div>
+              
+              <div class="title">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">1st Island</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+             </div>
+              <div class="uppercase">
+                
+                <input type="checkbox" id="Archery" value="Archery" v-model="checkedNames">
+                <label for="Archery">Archery</label>
+                <input type="checkbox" id="Griffin" value="Griffin" v-model="checkedNames">
+                <label for="Griffin">Griffin</label>
+                <input type="checkbox" id="Balista" value="Balista" v-model="checkedNames">
+                <label for="Balista">Balista</label>
+                <div class="row">
+                <img src="../assets/img/Coin_chest.png" alt="coins">
+                <span>3</span>
+                <img src="../assets/img/Gem_chest.png" alt="coins">
+                <span>0</span>
+                </div>
+
+              </div>
+
+
+            <div class="title">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">2nd Island</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+             </div>
+              <div class="uppercase">
+                
+                <input type="checkbox" id="Stone" value="Stone" v-model="checkedNames">
+                <label for="Mine">Mine</label>
+                <input type="checkbox" id="Farm" value="Farm" v-model="checkedNames">
+                <label for="Farm">Farm</label>
+                <input type="checkbox" id="Stag" value="Stag" v-model="checkedNames">
+                <label for="Stag">Stag</label>
+                <input type="checkbox" id="Stable" value="Stable" v-model="checkedNames">
+                <label for="Stable">Stable</label>
+                <div class="row">
+                <img src="../assets/img/Coin_chest.png" alt="coins">
+                <span>3</span>
+                <img src="../assets/img/Gem_chest.png" alt="coins">
+                <span>3</span>
+                </div>
+
+              </div>
+
+
+              <div class="title">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">3rd Island</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+             </div>
+              <div class="uppercase">
+                
+                <input type="checkbox" id="Workers" value="Workers" v-model="checkedNames">
+                <label for="Workers">Workers</label>
+                <input type="checkbox" id="Warhorse" value="Warhorse" v-model="checkedNames">
+                <label for="Warhorse">Warhorse</label>
+                <input type="checkbox" id="Bakery" value="Bakery" v-model="checkedNames">
+                <label for="Bakery">Bakery</label>
+                <div class="row">
+                <img src="../assets/img/Coin_chest.png" alt="coins">
+                <span>3</span>
+                <img src="../assets/img/Gem_chest.png" alt="coins">
+                <span>3</span>
+                </div>
+
+              </div>
+
+
+              <div class="title">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">4th Island</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+             </div>
+              <div class="uppercase">
+                
+                <input type="checkbox" id="Iron Mine" value="Iron Mine" v-model="checkedNames">
+                <label for="Iron Mine">Iron Mine</label>
+                <input type="checkbox" id="Bear" value="Bear" v-model="checkedNames">
+                <label for="Bear">Bear</label>
+                <input type="checkbox" id="Warrior" value="Warrior" v-model="checkedNames">
+                <label for="Warrior">Warrior</label>
+                <div class="row">
+                <img src="../assets/img/Coin_chest.png" alt="coins">
+                <span>1</span>
+                <img src="../assets/img/Gem_chest.png" alt="coins">
+                <span>3</span>
+                </div>
+
+              </div>
+
+              <div class="title">
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+            <p class="uppercase">5th Island</p>
+            <img src="../assets/img/ornament_gold.png" alt="ornament">
+             </div>
+              <div class="uppercase">
+                
+                <input type="checkbox" id="Knights" value="Knights" v-model="checkedNames">
+                <label for="Knights">Knights</label>
+                <input type="checkbox" id="Unicorn" value="Unicorn" v-model="checkedNames">
+                <label for="Unicorn">Unicorn</label>
+                <input type="checkbox" id="Horn" value="Horn" v-model="checkedNames">
+                <label for="Horn">Horn</label>
+                <div class="row">
+                <img src="../assets/img/Coin_chest.png" alt="coins">
+                <span>0</span>
+                <img src="../assets/img/Gem_chest.png" alt="coins">
+                <span>3</span>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
         </div>
+
+
+
 
       </div>
 
       <div class="footer">
-        <a href="https://github.com/AbFarid/daegmael" rel="noopener">
+        <a href="https://github.com/Kenneth-Sweet/daegmael-extended" rel="noopener">
           <img src="../assets/img/GitHub_mark.png" alt="github_mark">
         </a>
         <a href="https://vuejs.org/" target="_blank" rel="noopener">
@@ -136,7 +274,8 @@ export default class Home extends Vue {
 
   @State() currentDay;
   @State() timerRunning;
-
+  @State() gems;
+  @State() checkedNames;
   @State('userAgent') UA;
 
   @Getter() deromanized;
@@ -149,15 +288,19 @@ export default class Home extends Vue {
   @Getter() daytimeCountdown;
   @Getter() dayCountdown;
   @Getter() elapsedDayPercentage;
-
+  
   @Action() changeDay;
+  @Action() incrementGems;
+  @Action() decrementGems;
   // Timer Actions
   @Action() initTimer;
   @Action() startTimer;
   @Action() pauseTimer;
   @Action() stopTimer;
   @Action() resetTimer;
-
+  // Inventory Actions
+  @Action() 
+  
   @Action() toggleAOD;
 
 
@@ -323,7 +466,9 @@ export default class Home extends Vue {
     }
   }
 }
-
+.extraPad{
+  padding-top: 10px;
+}
 .center-text {
   text-align: center;
 }
